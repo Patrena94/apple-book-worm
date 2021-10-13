@@ -15,8 +15,8 @@ type Book{
   authors:[String]
   description: String
   title: String
-  // image: research
-  // link: research
+  image: Url
+  link: Url
 }
 type Auth{
   token: ID!
