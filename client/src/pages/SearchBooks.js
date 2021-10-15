@@ -16,11 +16,16 @@ const SearchBooks = () => {
 
   // set up useEffect hook to save `savedBookIds` list to localStorage on component unmount
   // learn more here: https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup
+function savedBookId(props){
+  const[savedBookIds, setSavedBookIds] =useState(null);
   useEffect(() => {
-    // function handleStatusChange(status){
-    //   setIsOnline(status.isOnline);
-    
-    return () => saveBookIds(savedBookIds);
+    function handleStatusChange(status){
+      setSavedBookIds(status.savedBookIds);
+    }
+      ChatAPI.savedBook(props.saveBookId.id, handleStatusChange);
+    return function cleanup() {
+      ChatAPI.removesavedbook(props.saveBookId.id, handleStatusChange);
+    };
   });
 
   // create method to search for books and set state on form submit
