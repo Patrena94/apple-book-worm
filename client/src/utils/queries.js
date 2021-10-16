@@ -11,4 +11,15 @@ export const QUERY_USER = gql`
       }
     }
   }
+  `;
+export const Query_GET_ME =gql`
+{
+  me{
+    _id
+    username
+    email
+    bookcont
+    savedBooks
+  }
+}
 `;

@@ -10,23 +10,21 @@ const SearchBooks = () => {
   const [searchedBooks, setSearchedBooks] = useState([]);
   // create state for holding our search field data
   const [searchInput, setSearchInput] = useState('');
-
+  // function savedBookIds(props){
   // create state to hold saved bookId values
   const [savedBookIds, setSavedBookIds] = useState(getSavedBookIds());
 
   // set up useEffect hook to save `savedBookIds` list to localStorage on component unmount
   // learn more here: https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup
-function savedBookId(props){
-  const[savedBookIds, setSavedBookIds] =useState(null);
-  useEffect(() => {
-    function handleStatusChange(status){
-      setSavedBookIds(status.savedBookIds);
+
+  // const[savedBookIds, setSavedBookIds] =useState(null);
+  useEffect(function savedBookIds() {
+    if(savedBookIds !==''){
+      localStorage.setItem('userData', savedBookIds)
     }
-      ChatAPI.savedBook(props.saveBookId.id, handleStatusChange);
-    return function cleanup() {
-      ChatAPI.removesavedbook(props.saveBookId.id, handleStatusChange);
-    };
+    
   });
+
 
   // create method to search for books and set state on form submit
   const handleFormSubmit = async (event) => {
