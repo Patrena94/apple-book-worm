@@ -8,7 +8,7 @@ export const QUERY_USER = gql`
       email
       bookCount
       savedBooks
-      }
+      
     }
   }
   `;

@@ -8,41 +8,43 @@ import { REMOVE_BOOK } from '../utils/mutations';
 import {Query_GET_ME } from '../utils/queries';
 
  // useEffect(() => {
-  const getUserData = () => {
-    // try {
-      const { removeBook, {error}, data } = useMutation(REMOVE_BOOK);
-      const { loading, data } = useQuery(Query_GET_ME);
-      const userData = data?.me ||[];
+//   const getUserData = () => {
+//     // try {
+      
 
-      const loggedIn=Auth.loggedIn();
+//       // const token = Auth.loggedIn() ? Auth.getToken() : null;
 
-      // const token = Auth.loggedIn() ? Auth.getToken() : null;
+//       // if (!token) {
+//       //   return false;
+//       // }
 
-      // if (!token) {
-      //   return false;
-      // }
+//     //   const response = await getMe(token);
 
-    //   const response = await getMe(token);
+//     //   if (!response.ok) {
+//     //     throw new Error('something went wrong!');
+//     //   }
 
-    //   if (!response.ok) {
-    //     throw new Error('something went wrong!');
-    //   }
+//     //   const user = await response.json();
+//     //   setUserData(user);
+//     // } catch (err) {
+//     //   console.error(err);
+//     // }
+//   // };
 
-    //   const user = await response.json();
-    //   setUserData(user);
-    // } catch (err) {
-    //   console.error(err);
-    // }
-  // };
-
-  getUserData();
-}
+//   getUserData();
+// }
 
 const SavedBooks = () => {
-  const [userData, setUserData] = useState({});
+  const { loading, data } = useQuery(Query_GET_ME);
+  const [ removeBook, {error} ] = useMutation(REMOVE_BOOK);
+  
+  const userData = data?.me ||[];
+
+      // const loggedIn=Auth.loggedIn();
+  // const [userData, setUserData] = useState({});
 
   // use this to determine if `useEffect()` hook needs to run again
-  const userDataLength = Object.keys(userData).length;
+  // const userDataLength = Object.keys(userData).length;
 
  
   // [userDataLength];
@@ -73,7 +75,7 @@ const SavedBooks = () => {
   };
 
   // if data isn't here yet, say so
-  if (!userDataLength) {
+  if (loading) {
     return <h2>LOADING...</h2>;
   }
 
