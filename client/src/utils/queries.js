@@ -18,7 +18,7 @@ export const Query_GET_ME =gql`
     _id
     username
     email
-    bookcont
+    bookCount
     savedBooks
   }
 }

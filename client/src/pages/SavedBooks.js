@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 import { Jumbotron, Container, CardColumns, Card, Button } from 'react-bootstrap';
-import { useQuery } from '@apollo/react-hooks';
+import { useMutation, useQuery } from '@apollo/client';
 import { getMe, deleteBook } from '../utils/API';
 import Auth from '../utils/auth';
 import { removeBookId } from '../utils/localStorage';
-// import { SAVE_BOOKS } from '../utils/mutations';
-import { QUERY_USER, Query_GET_ME } from '../utils/queries';
+import { REMOVE_BOOK } from '../utils/mutations';
+import {Query_GET_ME } from '../utils/queries';
 
  // useEffect(() => {
   const getUserData = () => {
     // try {
-      // const { loading, data } = useQuery(QUERY_USER);
-      const { data, userData } =useQuery(Query_GET_ME);
-      const users = data?.users ||[];
+      const { removeBook, {error}, data } = useMutation(REMOVE_BOOK);
+      const { loading, data } = useQuery(Query_GET_ME);
+      const userData = data?.me ||[];
 
       const loggedIn=Auth.loggedIn();
 
@@ -56,14 +56,15 @@ const SavedBooks = () => {
     }
 
     try {
-      const response = await deleteBook(bookId, token);
+      const {data}=await removeBook({ variables:{bookId}})
+      // const response = await deleteBook(bookId, token);
 
-      if (!response.ok) {
-        throw new Error('something went wrong!');
-      }
+      // if (!response.ok) {
+      //   throw new Error('something went wrong!');
+      // }
 
-      const updatedUser = await response.json();
-      setUserData(updatedUser);
+      // const updatedUser = await response.json();
+      // setUserData(updatedUser);
       // upon success, remove book's id from localStorage
       removeBookId(bookId);
     } catch (err) {
