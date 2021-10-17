@@ -31,6 +31,7 @@ const SignupForm = () => {
     }
 
     try {
+      console.log(userFormData)
       const response = await addUser(userFormData);
 
       if (!response.ok) {
