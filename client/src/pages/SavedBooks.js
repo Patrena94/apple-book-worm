@@ -16,9 +16,9 @@ const SavedBooks = () => {
   const { loading, data } = useQuery(Query_GET_ME);
   const [removeBook, { error }] = useMutation(REMOVE_BOOK);
 
-  const userData = data?.me || [];
+  const userData = data?.me || {};
 
-  const handleDeleteBook = async (bookId) => {
+  const handleRemoveBook = async (bookId) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
     if (!token) {
@@ -70,7 +70,7 @@ const SavedBooks = () => {
                   <Card.Text>{book.description}</Card.Text>
                   <Button
                     className="btn-block btn-danger"
-                    onClick={() => handleDeleteBook(book.bookId)}
+                    onClick={() => handleRemoveBook(book.bookId)}
                   >
                     Delete this Book!
                   </Button>
