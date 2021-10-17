@@ -64,7 +64,7 @@ const resolvers = {
        }
        throw new AuthenticationError('login to add Book to collection'); 
      },
-     removeBook: async(parent, { bookId}, context) =>{
+     removeBook: async(parent, { bookId }, context) =>{
        if(context.user) {
          const updateUser = await User.findoneandUpdate({
            _id: context.user._id },
