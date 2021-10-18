@@ -24,8 +24,6 @@
 
  7.[Screenshots](#Screenshots)
 
- 8.[Sources](#Sources)
-
  # Questions  
 
  Individuals with questions should contact me at patrena@sbcglobal.net.  You may also review my portfolio at Patrena Github repository(https://github.com/Patrena94).
@@ -37,10 +35,9 @@
 
 # Usage
  
- The user will need to vise the utilize this link to review the application.  The user will need to type in the title of the book, that they wish to view.  They may save the book by selecting save This book.  The use may review all saved books by selecting See Your Books.  The user will then be able to review and remove books from their personal list. 
+ The user will need to vise the utilize this link https://apple-book-worm.herokuapp.com/ to review the application.  The user will need to type in the title of the book, that they wish to view.  They may save the book by selecting save This book.  The use may review all saved books by selecting See Your Books.  The user will then be able to review and remove books from their personal list. 
 
- Heroku - https://patrena-ann-smith.herokuapp.com/
- Github Pages - https://patrena94.github.io/
+ Heroku - https://apple-book-worm.herokuapp.com/
 
 
 # Contribution
