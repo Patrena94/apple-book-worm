@@ -12,7 +12,7 @@ import { useMutation } from "@apollo/client";
 import { SAVE_BOOK } from "../utils/mutations";
 import Auth from "../utils/auth";
 import { searchGoogleBooks } from "../utils/API";
-import { getSavedBookIds } from "../utils/localStorage";
+import {saveBookIds, getSavedBookIds } from "../utils/localStorage";
 
 const SearchBooks = () => {
   // create state for holding returned google api data
@@ -26,14 +26,14 @@ const SearchBooks = () => {
   // set up useEffect hook to save `savedBookIds` list to localStorage on component unmount
   const [saveBook, { error }] = useMutation(SAVE_BOOK);
 
-  useEffect(function savedBookIds() {
-    if (savedBookIds !== "") {
-      localStorage.setItem("userData", savedBookIds);
-    }
-  });
-  // useEffect(()=>{
-  //   return ()=>saveBookIds(savedBookIds);
+  // useEffect(function savedBookIds() {
+  //   if (savedBookIds !== "") {
+  //     localStorage.setItem("userData", savedBookIds);
+  //   }
   // });
+  useEffect(()=>{
+    return ()=>saveBookIds(savedBookIds);
+  });
 
   // create method to search for books and set state on form submit
   const handleFormSubmit = async (event) => {
