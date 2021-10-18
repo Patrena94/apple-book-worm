@@ -49,7 +49,8 @@ Individual wishing to contribute to the application can fork copy of the code in
 
 # Screenshots
 
-
+![image](https://user-images.githubusercontent.com/83892241/137663554-9be33e71-0f29-4cbc-bb12-1a390f33d220.png)
+![image](https://user-images.githubusercontent.com/83892241/137663684-bee11c2f-38ea-48b9-b5c0-e50cdbf621ed.png)
 
 ❤️ Made with Love by Patrena, LLC. 2021
 ![Build Status](https://img.shields.io/github/languages/top/Patrena94/Smith-Corporation-Work-Scheduler)  
