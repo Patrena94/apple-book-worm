@@ -58,6 +58,7 @@ const SearchBooks = () => {
         title: book.volumeInfo.title,
         description: book.volumeInfo.description,
         image: book.volumeInfo.imageLinks?.thumbnail || "",
+        link: book.volumeInfo.infoLink
       }));
 
       setSearchedBooks(bookData);
@@ -81,7 +82,7 @@ const SearchBooks = () => {
 
     try {
       // const response = await saveBook(bookToSave, token);
-      await saveBook({ variables: { bookData: bookToSave } });
+      await saveBook({ variables: { bookData: { ...bookToSave} } });
 
       // if book successfully saves to user's account, save book id to state
       setSavedBookIds([...savedBookIds, bookToSave.bookId]);

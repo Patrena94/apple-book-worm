@@ -39,8 +39,9 @@ const resolvers = {
      },
 
      saveBook: async (parent, { bookData }, context) =>{
+       console.log(context.user)
        if(context.user) {
-         const updateUser = await User.findoneandUpdate({
+         const updateUser = await User.findOneAndUpdate({
            _id: context.user._id},
            {$addToSet: {savedBooks: bookData}},
            {new: true},
@@ -58,6 +59,7 @@ const resolvers = {
          );
          return updateUser;
        }
+       throw new AuthenticationError('login in to remove book from collection!');
      }
    } 
   };

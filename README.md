@@ -35,9 +35,9 @@
 
 # Usage
  
- The user will need to vise the utilize this link https://apple-book-worm.herokuapp.com/ to review the application.  The user will need to type in the title of the book, that they wish to view.  They may save the book by selecting save This book.  The use may review all saved books by selecting See Your Books.  The user will then be able to review and remove books from their personal list. 
+ The user will need to vise the utilize this link https://apple-book-worm2.herokuapp.com/ to review the application.  The user will need to type in the title of the book, that they wish to view.  They may save the book by selecting save This book.  The use may review all saved books by selecting See Your Books.  The user will then be able to review and remove books from their personal list. 
 
- Heroku - https://apple-book-worm.herokuapp.com/
+ Heroku - https://apple-book-worm2.herokuapp.com/
 
 
 # Contribution

@@ -14,7 +14,7 @@ import { GET_ME } from "../utils/queries";
 
 const SavedBooks = () => {
   const { loading, data } = useQuery(GET_ME);
-  const userData = data?.me || [];
+  const userData = data?.me || {};
 
   const [ removeBook ] = useMutation(REMOVE_BOOK);
 
@@ -47,14 +47,14 @@ const SavedBooks = () => {
       </Jumbotron>
       <Container>
         <h2>
-          {userData.savedBooks.length
+          {userData.savedBooks?.length
             ? `Viewing ${userData.savedBooks.length} saved ${
                 userData.savedBooks.length === 1 ? "book" : "books"
               }:`
             : "You have no saved books!"}
         </h2>
         <CardColumns>
-          {userData.savedBooks.map((book) => {
+          {userData.savedBooks?.map((book) => {
             return (
               <Card key={book.bookId} border="dark">
                 {book.image ? (
